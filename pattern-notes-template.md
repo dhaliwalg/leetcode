@@ -1,7 +1,7 @@
 # Arrays & HashMap/HashSet Patterns
 
 ## Core Concept
-Arrays & Hashing good 
+Brief explanation of what defines this pattern.
 
 ## When to Use
 - List of indicators in problem description that suggest this pattern
