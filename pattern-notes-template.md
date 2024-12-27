@@ -1,4 +1,4 @@
-# Arrays & HashMap/HashSet Patterns
+# Pattern Title
 
 ## Core Concept
 Brief explanation of what defines this pattern.
