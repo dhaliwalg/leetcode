@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 /**
  * LeetCode Problem: Longest Substring Without Repeating Characters
  * 
@@ -25,8 +27,39 @@
 
 class LongestSubstringWithoutRepeating {
     public int lengthOfLongestSubstring(String s) {
-        // Your solution goes here
-        return 0;
+        // Initialize the left pointer of our sliding window
+        int l = 0;
+        
+        // Variable to store the length of the longest valid substring found so far
+        int longestSubstring = 0;
+        
+        // HashSet to keep track of characters in current window
+        // Using HashSet because it provides O(1) lookup and ensures uniqueness
+        HashSet<Character> charSet = new HashSet<>();
+        
+        // Right pointer 'r' will iterate through the string
+        // This creates our sliding window from 'l' to 'r'
+        for(int r = 0; r < s.length(); r++) {
+            
+            // If we find a duplicate character (character at 'r' already exists in our set)
+            // we need to shrink our window from the left until we remove that duplicate
+            while(charSet.contains(s.charAt(r))) {
+                // Remove characters from the left of our window
+                charSet.remove(s.charAt(l));
+                // Move left pointer to shrink the window
+                l++;
+            }
+            
+            // At this point, we're guaranteed that the character at 'r' is not in our set
+            // Add the new character to our set
+            charSet.add(s.charAt(r));
+            
+            // Update the longest substring length if current window is longer
+            // Current window size is (r - l + 1)
+            longestSubstring = Math.max(longestSubstring, r - l + 1);
+        }
+        
+        return longestSubstring;
     }
 
     public static void main(String[] args) {
