@@ -1,6 +1,7 @@
 package patterns.trees.solutions;
 
 class BinarySearchTree {
+    //Nodes going to have L & R child
     class Node {
         int key;
         Node left, right;
@@ -15,14 +16,18 @@ class BinarySearchTree {
     class BST{
         Node root;
 
+        //constructor starts with nothing
         public BST(){
             root = null;
         }
 
+        //all tree actions basically need a helper method for cleanliness
         void insertItem(int val){
             root = insertHelper(val, root);
         }
 
+        //Our 3 cases: null, or is on L/R subtree
+        //return currNode will send the new tree back with proper linkage
         Node insertHelper(int val, Node currNode){
             if(currNode == null){
                 return new Node(val);
