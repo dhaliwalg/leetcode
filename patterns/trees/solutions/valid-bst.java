@@ -1,28 +1,27 @@
 package patterns.trees.solutions;
 
-public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
 //Easy way to validate the BST is to run the inOrder traversal because that would giive the values in
 //Ascending order. The key to this approach is the usage of the prev Node.
 //This will store the value prior to it, and compare the value to the current node.
 class Solution {
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+    
+        TreeNode() {
+        }
+    
+        TreeNode(int val) {
+            this.val = val;
+        }
+    
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
     TreeNode prev;
 
     public boolean isValidBST(TreeNode root) {
